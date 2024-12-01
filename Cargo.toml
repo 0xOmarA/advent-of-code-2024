@@ -1,0 +1,15 @@
+[package]
+name = "advent-of-code-2024"
+description = "Solving the Advent of Code 2024 in Rust."
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+
+[[bin]]
+name = "day1a"
+path = "src/bin/day1a/main.rs"
+
+[[bin]]
+name = "day1b"
+path = "src/bin/day1b/main.rs"
