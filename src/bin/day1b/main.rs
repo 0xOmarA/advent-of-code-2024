@@ -30,15 +30,16 @@ fn main() {
             .unzip::<_, _, Vec<_>, Vec<_>>()
     };
 
-    let repetitions_in_right_list =
-        right_list
-            .iter()
-            .fold(HashMap::<i32, usize>::new(), |mut map, number| {
-                *map.entry(*number).or_default() += 1;
-                map
-            });
+    let repetitions_in_right_list = right_list.iter().fold(
+        HashMap::<i32, usize>::new(),
+        |mut map, number| {
+            *map.entry(*number).or_default() += 1;
+            map
+        },
+    );
     let similarity_score = left_list.iter().fold(0usize, |acc, item| {
-        acc + (*item as usize * repetitions_in_right_list.get(item).copied().unwrap_or(0))
+        acc + (*item as usize
+            * repetitions_in_right_list.get(item).copied().unwrap_or(0))
     });
     println!("Similarity Score: {similarity_score}")
 }
